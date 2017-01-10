@@ -54,6 +54,7 @@ public class Game extends JPanel implements Runnable
 	private List<Star> stars = new ArrayList<Star>();
 	private List<Enemy> enemies = new ArrayList<Enemy>();
 	private List<Missile> missiles = new ArrayList<Missile>();
+	private List<Explosion> explosions = new ArrayList<Explosion>();
 	
 	// Used For Keeping Count Of Objects.
 	private final int starcount = 50;
@@ -273,6 +274,19 @@ public class Game extends JPanel implements Runnable
 				}
 			}
 			
+			for (Explosion explosion : explosions)
+			{
+				explosion.getAnimation().update();
+			}
+			
+			for (int i = 0; i < explosions.size(); ++i)
+			{
+				if (explosions.get(i).getAnimation().isStopped())
+				{
+					explosions.remove(explosions.get(i));
+				}
+			}
+			
 			for (Star star : stars)
 			{
 				star.move();
@@ -308,6 +322,11 @@ public class Game extends JPanel implements Runnable
 			for (Missile missile : missiles)
 			{
 				missile.paint(g2d);
+			}
+			
+			for (Explosion explosion : explosions)
+			{
+				explosion.paint(g2d);
 			}
 			
 			if (state.equals(STATE.END))
@@ -400,5 +419,10 @@ public class Game extends JPanel implements Runnable
 	public List<Missile> getMissiles()
 	{
 		return missiles;
+	}
+	
+	public List<Explosion> getExplosions()
+	{
+		return explosions;
 	}
 }

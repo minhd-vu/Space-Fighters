@@ -41,6 +41,13 @@ public class Missile
 			{
 				if (getBounds().intersects(enemy.getBounds()))
 				{
+					Explosion explosion = new Explosion(new Point(
+							(int) (enemy.getLocation().x - (128 - enemy.getBounds().getWidth()) / 2),
+							(int) (enemy.getLocation().y - (128 - enemy.getBounds().getHeight()) / 2)));
+					
+					explosion.getAnimation().start();
+					Game.getInstance().getExplosions().add(explosion);
+
 					enemy.respawn();
 					
 					Sound.HIT.stop();
@@ -69,5 +76,10 @@ public class Missile
 	public boolean hasExploded()
 	{
 		return exploded;
+	}
+	
+	public Point getLocation()
+	{
+		return location;
 	}
 }

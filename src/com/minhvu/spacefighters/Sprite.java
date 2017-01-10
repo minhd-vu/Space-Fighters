@@ -8,8 +8,7 @@ import javax.imageio.ImageIO;
 
 public class Sprite
 {
-	private static BufferedImage spriteSheet;
-	private static final int TILE_SIZE = 32;
+	private static BufferedImage spritesheet;
 
 	public static BufferedImage loadSprite(String file)
 	{
@@ -28,13 +27,13 @@ public class Sprite
 		return sprite;
 	}
 
-	public static BufferedImage getSprite(int x, int y)
+	public static BufferedImage getSprite(int x, int y, int size)
 	{
-		if (spriteSheet == null)
+		if (spritesheet == null)
 		{
-			spriteSheet = loadSprite("AnimationSpriteSheet");
+			spritesheet = loadSprite("explosion");
 		}
 
-		return spriteSheet.getSubimage(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+		return spritesheet.getSubimage(x * size, y * size, size, size);
 	}
 }

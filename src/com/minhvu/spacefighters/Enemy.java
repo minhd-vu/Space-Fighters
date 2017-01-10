@@ -59,4 +59,9 @@ public class Enemy
 	{
 		return new Rectangle(location.x, location.y, image.getWidth(Game.getInstance()), image.getHeight(Game.getInstance()));
 	}
+	
+	public Point getLocation()
+	{
+		return location;
+	}
 }
