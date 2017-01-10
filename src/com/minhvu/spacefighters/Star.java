@@ -1,19 +1,16 @@
 package com.minhvu.spacefighters;
 
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
-
-import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
 
 public class Star
 {
 	private Point location;
 	private final int speed = 3;
 
-	private static ImageIcon imageicon = new ImageIcon("res/star.png");
-	private static Image image = imageicon.getImage();
+	private static BufferedImage image = Sprite.getSprite(1056, 238, 32, 32);
 	
 	public Star()
 	{

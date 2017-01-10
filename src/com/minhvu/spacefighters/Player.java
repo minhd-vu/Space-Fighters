@@ -2,17 +2,14 @@ package com.minhvu.spacefighters;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-
-import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
 
 public class Player
 {
-	private static ImageIcon imageicon = new ImageIcon("res/spaceship.png");
-	private Image image = imageicon.getImage();
+	private static BufferedImage image = Sprite.getSprite(1024, 0, 125, 134);
 	
 	private Point location;
 	private int speed;

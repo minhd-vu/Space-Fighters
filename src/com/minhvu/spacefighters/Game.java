@@ -152,6 +152,9 @@ public class Game extends JPanel implements Runnable
 		addMouseListener(mouselistener);
 		setFocusable(true);
 
+		// Load In The Sprite Sheet.
+		Sprite.loadSprite("spritesheet");
+
 		//Sound.BACKGROUND.loop();
 		
 		// Create The Frame.
@@ -169,7 +172,6 @@ public class Game extends JPanel implements Runnable
 		end = new End();
 		score = new Score();
 		player = new Player();
-		Sprite.loadSprite("explosion");
 		
 		for (int i = 0; i < starcount; ++i)
 		{
