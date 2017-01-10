@@ -261,26 +261,20 @@ public class Game extends JPanel implements Runnable
 				enemy.move();
 			}
 			
-			for (Missile missile : missiles)
-			{
-				missile.move();
-			}
-			
 			for (int i = 0; i < missiles.size(); ++i)
 			{
+				missiles.get(i).move();
+				
 				if (missiles.get(i).hasExploded())
 				{
 					missiles.remove(missiles.get(i));
 				}
 			}
 			
-			for (Explosion explosion : explosions)
-			{
-				explosion.getAnimation().update();
-			}
-			
 			for (int i = 0; i < explosions.size(); ++i)
 			{
+				explosions.get(i).getAnimation().update();
+				
 				if (explosions.get(i).getAnimation().isStopped())
 				{
 					explosions.remove(explosions.get(i));
