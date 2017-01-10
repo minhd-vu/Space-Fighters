@@ -10,7 +10,7 @@ public class Sprite
 {
 	private static BufferedImage spritesheet;
 
-	public static BufferedImage loadSprite(String file)
+	public static void loadSprite(String file)
 	{
 		BufferedImage sprite = null;
 
@@ -24,16 +24,11 @@ public class Sprite
 			e.printStackTrace();
 		}
 
-		return sprite;
+		spritesheet = sprite;
 	}
 
 	public static BufferedImage getSprite(int x, int y, int size)
 	{
-		if (spritesheet == null)
-		{
-			spritesheet = loadSprite("explosion");
-		}
-
 		return spritesheet.getSubimage(x * size, y * size, size, size);
 	}
 }

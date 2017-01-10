@@ -169,6 +169,7 @@ public class Game extends JPanel implements Runnable
 		end = new End();
 		score = new Score();
 		player = new Player();
+		Sprite.loadSprite("explosion");
 		
 		for (int i = 0; i < starcount; ++i)
 		{
@@ -361,6 +362,8 @@ public class Game extends JPanel implements Runnable
 		
 		stars.removeAll(stars);
 		enemies.removeAll(enemies);
+		missiles.removeAll(missiles);
+		explosions.removeAll(explosions);
 		
 		for (int i = 0; i < starcount; ++i)
 		{
