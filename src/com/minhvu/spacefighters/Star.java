@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 public class Star
 {
 	private Point location;
-	private final int speed = 20;
+	private final int speed = 3;
 
 	private static ImageIcon imageicon = new ImageIcon("res/star.png");
 	private static Image image = imageicon.getImage();
