@@ -153,7 +153,8 @@ public class Game extends JPanel implements Runnable
 		setFocusable(true);
 
 		// Load In The Sprite Sheet.
-		Sprite.loadSprite("spritesheet");
+		//URL url = Game.class.getResource("/spritesheet.png");
+		Sprite.loadSprite("/spritesheet.png");
 
 		//Sound.BACKGROUND.loop();
 		
