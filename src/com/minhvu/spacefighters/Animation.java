@@ -6,31 +6,31 @@ import java.util.List;
 
 public class Animation
 {
-	private int frameCount;
-	private int frameDelay;
-	private int currentFrame;
-	private int animationDirection;
-	private int totalFrames;
+	private int framecount;
+	private int framedelay;
+	private int currentframe;
+	private int direction;
+	private int totalframes;
 
 	private boolean stopped;
 
 	private List<Frame> frames = new ArrayList<Frame>();
 
-	public Animation(BufferedImage[] frames, int frameDelay)
+	public Animation(BufferedImage[] frames, int framedelay)
 	{
-		this.frameDelay = frameDelay;
+		this.framedelay = framedelay;
 		this.stopped = true;
 
 		for (int i = 0; i < frames.length; i++)
 		{
-			addFrame(frames[i], frameDelay);
+			addFrame(frames[i], framedelay);
 		}
 
-		this.frameCount = 0;
-		this.frameDelay = frameDelay;
-		this.currentFrame = 0;
-		this.animationDirection = 1;
-		this.totalFrames = this.frames.size();
+		this.framecount = 0;
+		this.framedelay = framedelay;
+		this.currentframe = 0;
+		this.direction = 1;
+		this.totalframes = this.frames.size();
 
 	}
 
@@ -67,14 +67,14 @@ public class Animation
 		}
 
 		stopped = false;
-		currentFrame = 0;
+		currentframe = 0;
 	}
 
 	public void reset()
 	{
 		this.stopped = true;
-		this.frameCount = 0;
-		this.currentFrame = 0;
+		this.framecount = 0;
+		this.currentframe = 0;
 	}
 
 	private void addFrame(BufferedImage frame, int duration)
@@ -86,34 +86,34 @@ public class Animation
 		}
 
 		frames.add(new Frame(frame, duration));
-		currentFrame = 0;
+		currentframe = 0;
 	}
 
 	public BufferedImage getSprite()
 	{
-		return frames.get(currentFrame).getFrame();
+		return frames.get(currentframe).getFrame();
 	}
 
 	public void update()
 	{
 		if (!stopped)
 		{
-			frameCount++;
+			framecount++;
 
-			if (frameCount > frameDelay)
+			if (framecount > framedelay)
 			{
-				frameCount = 0;
-				currentFrame += animationDirection;
+				framecount = 0;
+				currentframe += direction;
 
-				if (currentFrame > totalFrames - 1)
+				if (currentframe > totalframes - 1)
 				{
-					currentFrame = 0;
+					currentframe = 0;
 					stopped = true;
 				}
 				
-				else if (currentFrame < 0)
+				else if (currentframe < 0)
 				{
-					currentFrame = totalFrames - 1;
+					currentframe = totalframes - 1;
 				}
 			}
 		}
